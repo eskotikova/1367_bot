@@ -17,7 +17,6 @@ class User(val tid:String) {
         val writer = FileWriter(file)
         val gson = GsonBuilder().create()
         gson.toJson(this, writer)
-        print("saved as ")
     }
 
     override fun equals(other: Any?): Boolean {
