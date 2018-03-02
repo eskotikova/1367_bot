@@ -12,7 +12,7 @@ object Requester {
 
     fun shifts():LinkedList<Shifts.Shift>{
         val shifts = LinkedList<Shifts.Shift>()
-        get("http://help.1367.ru/aero/data/${datestr()}.json").jsonArray.forEach { (it as JSONObject).getJSONArray("rows").forEach { shifts.add(Gson().fromJson((it.toString()),Shifts.Shift::class.java)) } }
+        get("http://help.1367.ru/aero/data/2018-03-02.json").jsonArray.forEach { (it as JSONObject).getJSONArray("rows").forEach { shifts.add(Gson().fromJson((it.toString()),Shifts.Shift::class.java)) } }
         return shifts
     }
 

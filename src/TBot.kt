@@ -12,9 +12,10 @@ class TBot(val users:LinkedList<User>): TelegramLongPollingBot() {
         Thread{
             while (true){ try {
                 Shifts.getActive().forEach{
-                    shift -> shift.used=true
+                    shift ->
                     users.forEach {
-                        sendMessage(SendMessage(it.tid,"у ${shift.gradeNumber} ${shift.lessonNumber} урок в ${shift.cabinet}")) } }
+                        if (!it.saved.contains(shift))
+                        sendMessage(SendMessage(it.tid,"У \"${shift.gradeNumber}\" ${shift.lessonNumber} урок в ${shift.cabinet}")) } }
                 Thread.sleep(10000)
             }catch (e:Exception){}
             }
