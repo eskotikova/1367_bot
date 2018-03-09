@@ -1,5 +1,5 @@
 import com.google.gson.Gson
-import objects.Shifts
+import Requester.Shifts
 import objects.User
 import org.telegram.telegrambots.ApiContextInitializer
 import org.telegram.telegrambots.TelegramBotsApi
